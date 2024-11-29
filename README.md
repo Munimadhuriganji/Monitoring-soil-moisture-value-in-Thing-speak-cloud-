@@ -1,93 +1,151 @@
-# Monitoring-soil-moisture-value-in-Thing-speak-cloud
-# Uploading soil moisture sensor data in Thing Speak cloud
+## NAME : GANJI MUNI MADHURI
+## REG NO : 212223230060
+# Ex - 05 Soil-moisture-sensor-interfacing-with-IoT-controller-and-uploading-the-data-in-the-cloud.
 
 # AIM:
-To monitor the soil moisture value in the Thing speak cloud using soil moisture sensor and ESP32 controller.
+To upload the Soil-moisture sensor value in the Things mate using Arduino controller.
+
 # Apparatus required:
-ESP32 Controller<br>
-Soil moisture Sensor<br>
-Power supply<br>
-Connecting wires<br>
-Bread board<br>
+Arduino Controller  </br>
+Indoor gateway</br>
+LoRaWAN shield </br>
+Soil moisture sensor </br>
+Power supply </br>
+Connecting wires </br>
+Bread board </br>
+
 # PROCEDURE:
-## Arduino IDE
-Step1:Open the Arduino IDE<br>
-Step2: Go to sketch- include library – manage libraries file and install esp32 and thing speak library file<br>
-Step3:Go to file and select new file option<br>
-Step4:Type the program and update the thing speak channel ID, API key, wifi password and ID<br>
-Step5:Go to file and select save option to save the program<br>
-Step6:Go to sketch and select verify or compile options<br>
-Step7:If no error Hex file will be generated in the temporary folder<br>
-Step8: Connect all the components as per the circuit diagram<br>
-Step9: Connect the programming cable with esp32 and PC.<br>
-Step10: Check the jumper position and connect 4 & 5 of P4.<br>
-Step11. Upload the program in the esp32.<br>
-Step12 Press the boot button in ESP32 and then press and release the reset button after release the boot button<br>
-Step13 Check the output in the cloud<br>
-## Thingspeak
-Step1 Create a ThingSpeak Account<br>
-Step2 Log in to your ThingSpeak account<br>
-Step3 Create a new channel by navigating to "Channels" and clicking on "New Channel."<br>
-Step4 Configure your channel settings, such as Field labels and Channel name<br>
-Step5 Copy the Channel ID and API key in the thingspeak and update in the program<br>
-Step6 Execute your program to send the sensor value to ThingSpeak<br>
-Step7 Check your ThingSpeak channel to verify that the sensor value has been updated<br>
+
+### Procedure for gateway setup
+	Go to the link http://172.31.255.254:8000 </br>
+	Type the user name password </br>
+	Go to LoRa and set the frequency plan 865 Mhz </br>
+	In LoRa WAN configurations enter the Gate EUI and server address </br>
+	Enable the Internet </br>
+	Select the Wifi access point </br>
+	Type the ssid and password in wifi LAN setting </br>
+	Select the internet and IoT service and provide the details. </br>
+	Check all the green colour tick marks in gate way and proceed </br>
+
+### Procedure for gateway registration in The thingsMate LoRaWAN Management </br>
+	Login https://iot.saveetha.in:4433 and provide the user id and password </br>
+	Go to overview and select application server </br>
+	Go to gateway and add new gateway </br>
+	Enter the gateway id, name, EUI and select frequency plan </br>
+	Open Arduino IDE and type the program for the given application </br>
+	Compile the program if no error uploads the program in the controller </br>
+	Go to gateways in things mate and check the live data </br>
+	Create channel by giving channel name and ID </br>
+	Add end device and enter the frequency plan, DevEUI, AppEUI, APP key, Select LoRaWAN version </br>
+	Enter payload formatters </br>
+	Go to the option query and give the new query name </br>
+	Go to the option Dashboard and verify the output.</br>  
+
 # THEORY:
-## Soil moisture sensor:
-The soil moisture sensor is one kind of sensor used to gauge the volumetric content of water within the soil. As the straight gravimetric dimension of soil moisture needs eliminating, drying, as well as sample weighting. These sensors measure the volumetric water content not directly with the help of some other rules of soil like dielectric constant, electrical resistance, otherwise interaction with neutrons, and replacement of the moisture content.
-The relation among the calculated property as well as moisture of soil should be adjusted & may change based on ecological factors like temperature, type of soil, otherwise electric conductivity. The microwave emission which is reflected can be influenced by the moisture of soil as well as mainly used in agriculture and remote sensing within hydrology
-## Soil Moisture Sensor Pin Configuration
-The FC-28 soil moisture sensor includes 4-pins
-•	VCC pin is used for power<br>
-•	A0 pin is an analog output<br>
-•	D0 pin is a digital output<br>
-•	GND pin is a Ground<br>
-![image](https://github.com/user-attachments/assets/7fd3c618-7d11-4186-afc7-7ab81ec9d326)
 
-This module also includes a potentiometer that will fix the threshold value, & the value can be evaluated by the comparator-LM393. The LED will turn on/off based on the threshold value.
-## Working Principle
-This sensor mainly utilizes capacitance to gauge the water content of the soil (dielectric permittivity). The working of this sensor can be done by inserting this sensor into the earth and the status of the water content in the soil can be reported in the form of a percent.
-This sensor makes it perfect to execute experiments within science courses like environmental science, agricultural science, biology, soil science, botany, and horticulture.
-## Specifications
-The specification of this sensor includes the following.
-•	The required voltage for working is 5V<br>
-•	The required current for working is <20mA<br>
-•	Type of interface is analog<br>
-•	The required working temperature of this sensor is 10°C~30°C<br>
-## Soil Moisture Sensor Applications
-The applications of moisture sensor include the following.
-•	Agriculture<br>
-•	Landscape irrigation<br>
-•	Research<br>
-•	Simple sensors for gardeners<br>
-## What is IoT?
+### What is IoT?
+
 Internet of Things (IoT) describes an emerging trend where a large number of embedded devices (things) are connected to the Internet. These connected devices communicate with people and other things and often provide sensor data to cloud storage and cloud computing resources where the data is processed and analyzed to gain important insights. Cheap cloud computing power and increased device connectivity is enabling this trend.IoT solutions are built for many vertical applications such as environmental monitoring and control, health monitoring, vehicle fleet monitoring, industrial monitoring and control, and home automation
-![image](https://github.com/user-attachments/assets/9b5b1576-a121-4045-b578-2cf5cc7fa62b)
 
-Sending Data to Cloud with ESP32 and ThingSpeak
-ThingSpeak is an Internet of Things (IoT) analytics platform that allows users to collect, analyze, and visualize data from sensors or devices connected to the Internet. It is a cloud-based platform that provides APIs for storing and retrieving data, as well as tools for data analysis and visualization.The Internet of Things ( or IoT) is a network of interconnected computing devices such as digital machines, automobiles with built-in sensors, or humans with unique identifiers and the ability to communicate data over a network without human intervention.Hello readers, I hope you all are doing great. In this tutorial, we will learn how to send sensor readings from ESP32 to the ThingSpeak cloud. Here we will use the ESP32’s internal sensor like hall-effect sensor and temperature sensor to observe the data and then will share that data cloud.
-## What is ThingSpeak?
-![image](https://github.com/user-attachments/assets/d7ad629b-944c-47c3-a949-303a3eb32bfc)
+![image](https://user-images.githubusercontent.com/71547910/235334044-c01d4261-d46f-4f62-b07f-72a7b6fce5d5.png)
 
-It is an open data platform for IoT (Internet of Things). ThingSpeak is a web service operated by MathWorks where we can send sensor readings/data to the cloud. We can also visualize and act on the data (calculate the data) posted by the devices to ThingSpeak. The data can be stored in either private or public channels.ThingSpeak is frequently used for internet of things prototyping and proof of concept systems that require analytics.
-## Features Of ThingSpeak
-ThingSpeak service enables users to share analyzed data through public channels:<br>
-ThingSpeak allows professionals to prepare and analyze data for their businesses:<br>
-ThingSpeak updates various ThingSpeak channels using MQTT and REST APIs:<br>
-Easily configure devices to send data to ThingSpeak using popular IoT protocols.<br>
-Visualize your sensor data in real-time.<br>
-Aggregate data on-demand from third-party sources.<br>
-Use the power of MATLAB to make sense of your IoT data.<br>
-Run your IoT analytics automatically based on schedules or events<br>.
-Prototype and build IoT systems without setting up servers or developing web software.<br>
+### Soil moisture sensor 
 
-![image](https://github.com/user-attachments/assets/5beaf86c-0d5d-4b99-9c22-bb0351f487ab)
+The soil moisture sensor is one kind of sensor used to gauge the volumetric content of water within the soil. As the straight gravimetric dimension of soil moisture needs eliminating, drying, as well as sample weighting. These sensors measure the volumetric water content not directly with the help of some other rules of soil like dielectric constant, electrical resistance, otherwise interaction with neutrons, and replacement of the moisture content.
+
+#### Soil Moisture Sensor Pin Configuration
+VCC pin is used for power
+A0 pin is an analog output
+D0 pin is a digital output
+GND pin is a Ground
+This module also includes a potentiometer that will fix the threshold value, & the value can be evaluated by the comparator-LM393.
+
+![image](https://github.com/anishkumar-Embedded/Soil-moisture-sensor-interfacing-with-IoT-controller-and-uploading-the-data-in-the-cloud./assets/71547910/6926d6ff-bbf2-4421-b3e5-d7c19a7ba5b6)
+
+This sensor mainly utilizes capacitance to gauge the water content of the soil (dielectric permittivity). The working of this sensor can be done by inserting this sensor into the earth and the status of the water content in the soil can be reported in the form of a percent.This sensor makes it perfect to execute experiments within science courses like environmental science, agricultural science, biology, soil science, botany, and horticulture.
+
+### What is LoRaWAN
+
+The LoRaWAN® specification is a Low Power, Wide Area (LPWA) networking protocol designed to wirelessly connect battery operated ‘things’ to the internet in regional, national or global networks, and targets key Internet of Things (IoT) requirements such as bi-directional communication, end-to-end security, mobility and localization services.LoRaWAN® network architecture is deployed in a star-of-stars topology in which gateways relay messages between end-devices and a central network server. The gateways are connected to the network server via standard IP connections and act as a transparent bridge, simply converting RF packets to IP packets and vice versa. The wireless communication takes advantage of the Long Range characteristics of the LoRaÒ physical layer, allowing a single-hop link between the end-device and one or many gateways. All modes are capable of bi-directional communication, and there is support for multicast addressing groups to make efficient use of spectrum during tasks such as Firmware Over-The-Air (FOTA) upgrades or other mass distribution messages.
+
+The specification defines the device-to-infrastructure (LoRa®) physical layer parameters & (LoRaWAN®) protocol and so provides seamless interoperability between manufacturers, as demonstrated via the device certification program.While the specification defines the technical implementation, it does not define any commercial model or type of deployment (public, shared, private, enterprise) and so offers the industry the freedom to innovate and differentiate how it is used.The LoRaWAN® specification is developed and maintained by the LoRa Alliance®: an open association of collaborating members.
+
+![image](https://github.com/anishkumar-Embedded/Update-the-Ultrasonic-sensor-value-in-cloud/assets/71547910/c63c4edd-3b95-4a69-b9c2-4862afb335c3)
+
+### Characteristics of LoRaWAN technology
+Long range communication up to 10 miles in line of sight.
+Long battery duration of up to 10 years. For enhanced battery life, you can operate your devices in class A or class B mode, which requires increased downlink latency.
+Low cost for devices and maintenance.
+License-free radio spectrum but region-specific regulations apply.
+Low power but has a limited payload size of 51 bytes to 241 bytes depending on the data rate. The data rate can be 0,3 Kbit/s – 27 Kbit/s data rate with a 222 maximal payload size.
+
+### The Things Mate - IoT Cloud Platform
+
+IoT cloud platforms play a pivotal role in the development and deployment of Internet of Things (IoT) applications, connecting devices and enabling seamless data management and analysis. These platforms typically offer a comprehensive suite of services, including device provisioning, secure connectivity, data storage, and advanced analytics.Leading IoT cloud platforms, such as AWS IoT, Azure IoT, and Google Cloud IoT, provide scalable and reliable infrastructure to accommodate diverse IoT deployments. They facilitate device management, allowing users to monitor, update, and control connected devices remotely. Security features are integral, ensuring data integrity and safeguarding against potential threats.
+
+Analytics capabilities enable organizations to derive meaningful insights from the vast amounts of data generated by IoT devices. Machine learning and artificial intelligence integrations further enhance predictive analytics, enabling proactive decision-making.These platforms often offer APIs for seamless integration with other cloud services, supporting a wide range of industries and applications, from smart homes to industrial automation. As the IoT landscape evolves, cloud platforms continue to innovate, contributing to the growth and sophistication of IoT ecosystems worldwide. Choosing the right IoT cloud platform involves considering factors such as scalability, security, and compatibility with specific use cases.
 
 # PROGRAM:
+```
+#include <WiFi.h>
+#include "ThingSpeak.h" // always include thingspeak header file after other header files and custom macros
+#define Soil_Moisture 02
+char ssid[] = "NO FREE WIFI";   // your network SSID (name) 
+char pass[] = "0987654321";   // your network password
+int keyIndex = 0;            // your network key Index number (needed only for WEP)
+WiFiClient  client;
+
+unsigned long myChannelNumber = 2742111;
+const int ChannelField = 1; 
+const char * myWriteAPIKey = "9MSJS5TUD6HIRBWT";
+
+void setup() {
+  Serial.begin(115200);  //Initialize serial
+  pinMode(Soil_Moisture, INPUT);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for Leonardo native USB port only
+  }
+  
+  WiFi.mode(WIFI_STA);   
+  ThingSpeak.begin(client);  // Initialize ThingSpeak
+}
+
+void loop()
+{
+ if (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.print("Attempting to connect to SSID: ");
+    Serial.println(ssid);
+    while (WiFi.status() != WL_CONNECTED)
+    {
+      WiFi.begin(ssid, pass);
+      Serial.print(".");
+      delay(5000);
+    }
+    Serial.println("\nConnected.");
+  }
+
+ /* Soil MoistureSensor */
+  int Soil_Value = digitalRead(Soil_Moisture);
+  Serial.println(Soil_Value);
+  int x = ThingSpeak.writeField(myChannelNumber, ChannelField, Soil_Value, myWriteAPIKey);
+  if(x == 200)
+{
+    Serial.println("Channel update successful.");
+  }
+  else
+{
+    Serial.println("Problem updating channel. HTTP error code " + String(x));
+  }
+   delay(20000); // Wait 20 seconds to update the channel again
+}
+```
 # CIRCUIT DIAGRAM:
+![image](https://github.com/user-attachments/assets/e3c4ba0a-e861-43c8-89fe-ee32b89504de)
+
 # OUTPUT:
+![WhatsApp Image 2024-11-16 at 15 01 56_55904dd4](https://github.com/user-attachments/assets/0af642e7-dae8-49ea-8060-6a18c99a8f95)
+
 # RESULT:
-Thus the soil moisture values are updated in the Thing speak cloud using ESP32 controller.
 
-
-
+Thus the Soil-moisture sensor value is uploaded in the Things mate using Arduino controller.
